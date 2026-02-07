@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noorjahat Afreen | Website Developer</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
+    :root{
+      --primary:#0b3d91;
+      --secondary:#ff7a00;
+      --bg:#f4f7fb;
+      --text:#1b1b1b;
+      --card:#ffffff;
+    }
+    body{background:var(--bg);color:var(--text);line-height:1.7;}
+
+    .container{width:90%;max-width:1100px;margin:auto;}
+
+    /* Header */
+    header{
+      background:rgba(11,61,145,0.95);
+      color:white;
+      padding:14px 0;
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter: blur(10px);
+      box-shadow:0 4px 18px rgba(0,0,0,0.18);
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+    .logo{
+      font-weight:900;
+      font-size:16px;
+      letter-spacing:0.3px;
+    }
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      font-weight:800;
+      font-size:14px;
+      padding:7px 10px;
+      border-radius:10px;
+      transition:0.2s;
+    }
+    nav ul li a:hover{
+      background:rgba(255,255,255,0.14);
+    }
+
+    /* Hero */
+    .hero{
+      padding:70px 0 55px;
+      background:linear-gradient(135deg, rgba(11,61,145,0.95), rgba(0,0,0,0.65)),
+      url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80");
+      background-size:cover;
+      background-position:center;
+      color:white;
+    }
+    .hero-box{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:22px;
+      align-items:center;
+    }
+    .hero h1{
+      font-size:38px;
+      font-weight:900;
+      line-height:1.2;
+      margin-bottom:10px;
+    }
+    .hero p{
+      opacity:0.95;
+      font-size:16px;
+      margin-bottom:18px;
+    }
+    .badge{
+      display:inline-block;
+      background:rgba(255,255,255,0.15);
+      padding:7px 12px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      background:var(--secondary);
+      color:#111;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:900;
+      margin-right:10px;
+      margin-top:8px;
+      transition:0.2s;
+    }
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.05);}
+
+    .btn2{
+      display:inline-block;
+      padding:12px 18px;
+      background:rgba(255,255,255,0.15);
+      color:white;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:900;
+      margin-top:8px;
+      border:1px solid rgba(255,255,255,0.25);
+      transition:0.2s;
+    }
+    .btn2:hover{transform:translateY(-2px);}
+
+    .hero-card{
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.18);
+      padding:18px;
+      border-radius:18px;
+      backdrop-filter: blur(12px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    }
+    .hero-card h3{
+      font-size:16px;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+    .hero-card p{
+      font-size:14px;
+      opacity:0.92;
+    }
+
+    /* Sections */
+    .section{padding:55px 0;}
+    .section h2{
+      text-align:center;
+      font-size:28px;
+      font-weight:900;
+      color:var(--primary);
+      margin-bottom:22px;
+    }
+    .sub{
+      text-align:center;
+      max-width:800px;
+      margin: -10px auto 25px;
+      opacity:0.85;
+    }
+
+    /* Cards */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:18px;
+    }
+    .card{
+      background:var(--card);
+      padding:20px;
+      border-radius:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transition:0.2s;
+    }
+    .card:hover{transform:translateY(-4px);}
+    .card h3{font-weight:900;margin-bottom:8px;}
+    .card p{opacity:0.9;font-size:14px;}
+
+    /* Projects */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:18px;
+    }
+    .project{
+      background:var(--card);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transition:0.2s;
+    }
+    .project:hover{transform:translateY(-4px);}
+    .project img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+    }
+    .project .pcontent{
+      padding:18px;
+    }
+    .project h3{font-weight:900;margin-bottom:6px;}
+    .project p{font-size:14px;opacity:0.88;margin-bottom:12px;}
+    .tag{
+      display:inline-block;
+      background:#eef3ff;
+      color:var(--primary);
+      font-weight:900;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    /* Pricing */
+    .price{
+      border:2px solid #e9eefc;
+    }
+    .price h3{
+      color:var(--primary);
+    }
+    .price .amount{
+      font-size:26px;
+      font-weight:900;
+      margin:10px 0;
+    }
+    .price ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+
+    /* Contact */
+    .contact-box{
+      background:var(--card);
+      padding:22px;
+      border-radius:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      max-width:850px;
+      margin:auto;
+      text-align:center;
+    }
+    .contact-box p{opacity:0.9;margin-bottom:14px;}
+    .contact-links a{
+      display:inline-block;
+      margin:8px;
+      padding:12px 18px;
+      border-radius:14px;
+      font-weight:900;
+      text-decoration:none;
+      transition:0.2s;
+    }
+    .wa{background:#25d366;color:white;}
+    .call{background:#1f9d55;color:white;}
+    .mail{background:var(--primary);color:white;}
+    .contact-links a:hover{transform:translateY(-2px);}
+
+    footer{
+      background:var(--primary);
+      color:white;
+      text-align:center;
+      padding:22px 0;
+      font-weight:700;
+      margin-top:30px;
+    }
+
+    /* Floating WhatsApp */
+    .floating{
+      position:fixed;
+      right:15px;
+      bottom:15px;
+      z-index:999;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .floating a{
+      padding:12px 16px;
+      border-radius:50px;
+      text-decoration:none;
+      color:white;
+      font-weight:900;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    /* Responsive */
+    @media(max-width:820px){
+      .hero-box{grid-template-columns:1fr;}
+      .hero h1{font-size:28px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">Noorjahan Afreen</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-box">
+    <div>
+      <div class="badge">💻 Website Developer | HTML • CSS • JavaScript</div>
+      <h1>Hi, I’m Noorjahat Afreen 👋</h1>
+      <p>
+        I build modern, mobile-friendly websites for schools, businesses, and personal brands.
+        I can convert posters into websites and deliver clean professional designs.
+      </p>
+
+      <a class="btn" href="#projects">View My Work</a>
+      <a class="btn2" href="#contact">Hire Me</a>
+    </div>
+
+    <div class="hero-card">
+      <h3>⭐ Quick Info</h3>
+      <p>✅ Mobile Responsive Websites</p>
+      <p>✅ Fast Delivery (3–7 Days)</p>
+      <p>✅ WhatsApp / Call Buttons</p>
+      <p>✅ Clean & Professional Design</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="container">
+    <h2>My Skills</h2>
+    <p class="sub">I focus on simple, clean and professional websites that look good on mobile.</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>HTML + CSS</h3>
+        <p>Professional layouts, clean design, and premium UI.</p>
+      </div>
+      <div class="card">
+        <h3>JavaScript</h3>
+        <p>Basic interactivity like forms, gallery, and animations.</p>
+      </div>
+      <div class="card">
+        <h3>Responsive Design</h3>
+        <p>Websites that work perfectly on mobile, tablet and desktop.</p>
+      </div>
+      <div class="card">
+        <h3>Poster to Website</h3>
+        <p>I can convert posters/banners into complete websites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="container">
+    <h2>My Projects</h2>
+    <p class="sub">Some sample work. I can build similar websites for you.</p>
+
+    <div class="projects">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80" alt="School Website">
+        <div class="pcontent">
+          <h3>School Website</h3>
+          <p>Admissions page, gallery, contact, WhatsApp & call buttons.</p>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Responsive</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=70" alt="">
+        <div class="pcontent">
+          <h3>Business Landing Page</h3>
+          <p>Modern landing page for small business with services and contact.</p>
+          <span class="tag">Clean UI</span>
+          <span class="tag">Fast</span>
+          <span class="tag">Mobile</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=70" alt="">
+        <div class="pcontent">
+          <h3>Portfolio Website</h3>
+          <p>Personal website for freelancer with pricing and contact section.</p>
+          <span class="tag">Professional</span>
+          <span class="tag">SEO Ready</span>
+          <span class="tag">Modern</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="container">
+    <h2>Pricing</h2>
+    <p class="sub">Simple pricing. Final cost depends on pages and features.</p>
+
+    <div class="cards">
+      <div class="card price">
+        <h3>Basic</h3>
+        <div class="amount">₹6,000+</div>
+        <ul>
+          <li>1–3 Pages</li>
+          <li>Mobile Responsive</li>
+          <li>WhatsApp + Call Button</li>
+          <li>Contact Page</li>
+        </ul>
+      </div>
+
+      <div class="card price">
+        <h3>Standard ⭐</h3>
+        <div class="amount">₹8,000+</div>
+        <ul>
+          <li>5–6 Pages</li>
+          <li>Gallery Section</li>
+          <li>Admission/Enquiry Form</li>
+          <li>Premium Design</li>
+        </ul>
+      </div>
+
+      <div class="card price">
+        <h3>Premium</h3>
+        <div class="amount">₹10,000+</div>
+        <ul>
+          <li>7–10 Pages</li>
+          <li>Extra Features</li>
+          <li>Basic SEO</li>
+          <li>Support & Updates</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <h2>Contact Me</h2>
+
+    <div class="contact-box">
+      <p>
+        If you want a website for your school, business, or personal work,
+        contact me directly.
+      </p>
+
+      <div class="contact-links">
+        <a class="wa" href="https://wa.me/918982767251" target="_blank">💬 WhatsApp</a>
+        <a class="call" href="tel:918982767251">📞 Call</a>
+        <a class="mail" href="mailto: afreenkhan88225@gmail.com">📩 Email</a>
+      </div>
+
+      <p style="margin-top:14px; font-weight:800;">
+        Available for: School Websites • Business Websites • Landing Pages • Portfolio Websites
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Noorjahat Afreen | Website Developer</p>
+</footer>
+
+<div class="floating">
+  <a class="wa" href="https://wa.me/918982767251" target="_blank">💬 WhatsApp</a>
+  <a class="call" href="tel:918982767251">📞 Call</a>
+</div>
+
+</body>
+</html>
